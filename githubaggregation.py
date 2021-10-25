@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, request
 import requests
-from temp_auth import auth  # Used to authenticate github api requests
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
@@ -8,7 +7,7 @@ app.config['JSON_SORT_KEYS'] = False
 
 def update_language_stats(language_counts, languages_url):
     # Get a list of languages used in this repo
-    language_list = requests.get(languages_url, auth=auth).json().keys()
+    language_list = requests.get(languages_url).json().keys()
 
     # Update language_counts
     for language in language_list:
@@ -28,7 +27,7 @@ def aggregate_github_stats(username, show_forked):
     repos_url = f'https://api.github.com/users/{username}/repos'
     params = dict(page=1, per_page=100)
 
-    repo_json_obj = requests.get(repos_url, params, auth=auth).json()
+    repo_json_obj = requests.get(repos_url, params).json()
 
     # Continue requesting and aggregating stats while the returned data is not empty
     # If show_forked is false and forks_count == 0 we skip that repo
