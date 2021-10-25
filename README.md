@@ -19,9 +19,9 @@ stargazers, total number of forks, average repo size in KB, and a list of langua
     <li>Install dependencies.
       <br>pip3 install -r requirements.txt</li>
     <li>Export the FLASK_APP environment variable.
-      <br>```export FLASK_APP=githubaggregation```</li>
-    <li>Run the Flask app.</li>
-      ```flask run```
+      <br>export FLASK_APP=githubaggregation</li>
+    <li>Run the Flask app.
+      <br>flask run</li>
   </ol>
   <p>The app is now running on local host: http://127.0.0.1:5000/</p>
 </div>
