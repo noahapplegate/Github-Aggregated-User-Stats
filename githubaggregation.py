@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import requests
 from temp_auth import auth  # Used to authenticate github api requests
 
@@ -63,9 +63,8 @@ def aggregate_github_stats(username):
     return aggregate_data_response
 
 
-@app.route('/')
-def hello_world():
-    username = 'noahapplegate'
+@app.route('/<string:username>')
+def github_user_stats(username):
     response = aggregate_github_stats(username)
     return jsonify(response)
 
