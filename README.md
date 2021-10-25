@@ -14,14 +14,14 @@ stargazers, total number of forks, average repo size in KB, and a list of langua
   <ol>
     <li>Navigate to the project folder in a terminal.</li>
     <li>Create and start a virtual environment.
-      <br>python3 -m venv .venv
-      <br>source .venv/bin/activate</li>
+      <br><strong>python3 -m venv .venv</strong>
+      <br><strong>source .venv/bin/activate</strong></li>
     <li>Install dependencies.
-      <br>pip3 install -r requirements.txt</li>
+      <br><strong>pip3 install -r requirements.txt</strong></li>
     <li>Export the FLASK_APP environment variable.
-      <br>export FLASK_APP=githubaggregation</li>
+      <br><strong>export FLASK_APP=githubaggregation</strong></li>
     <li>Run the Flask app.
-      <br>flask run</li>
+      <br><strong>flask run</strong></li>
   </ol>
   <p>The app is now running on local host: http://127.0.0.1:5000/</p>
 </div>
