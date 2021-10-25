@@ -48,7 +48,8 @@ def aggregate_github_stats(username, show_forked):
         repo_json_obj = requests.get(repos_url, params).json()
 
     # Calculate average repo size
-    avg_repo_size /= total_repo_count
+    if total_repo_count != 0:
+        avg_repo_size /= total_repo_count
 
     # Sort languages by their counts and store it as a list
     language_list = sorted(language_counts.items(), key=lambda x: x[1], reverse=True)
@@ -67,6 +68,12 @@ def aggregate_github_stats(username, show_forked):
 
 @app.route('/<string:username>')
 def github_user_stats(username):
-    show_forked = request.args.get('forked', default=1, type=int)
+    # Validate the username
+    # Return Github's missing user JSON if the user does not exist
+    r = requests.get(f'https://api.github.com/users/{username}').json()
+    if 'message' in r:
+        return r, 404
+
+    show_forked = bool(request.args.get('forked', default=1, type=int))
     stats_dict = aggregate_github_stats(username, show_forked)
-    return jsonify(stats_dict)
+    return jsonify(stats_dict), 200
