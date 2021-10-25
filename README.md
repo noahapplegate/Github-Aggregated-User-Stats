@@ -1,6 +1,7 @@
 # Github-Aggregated-User-Stats
 <h4 style="margin-left:5%">Returns JSON containing a github user's total number of repos, total number of 
 stargazers, total number of forks, average repo size in KB, and a list of languages used.</h4>
+<h4>Hosted at: https://radiant-garden-83945.herokuapp.com/
 <h3>How to use:</h3>
 <div style="margin-left:5%">
   <p>To use this API visit https://radiant-garden-83945.herokuapp.com/{username}</p>
